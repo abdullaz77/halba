@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>حلبة — دعوة للعب</title>
+<meta property="og:title" content="🏎️ تعال العب معي «حلبة»"><meta property="og:description" content="دريفت وصدمات — اضغط وادخل غرفتي">
+<style>body{font-family:-apple-system,'Geeza Pro',sans-serif;background:radial-gradient(120% 80% at 50% 0%,#232a45,#07080d);color:#fff;text-align:center;min-height:100vh;margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;box-sizing:border-box}
+h1{font-size:64px;margin:0;background:linear-gradient(180deg,#fff,#ffd36b 55%,#ff7a2f);-webkit-background-clip:text;color:transparent;font-style:italic}
+.code{font-size:44px;letter-spacing:8px;font-weight:900;color:#ffc83d;direction:ltr;margin:10px 0}
+a.btn{display:block;width:100%;max-width:340px;margin:10px auto;padding:14px;border-radius:16px;font-weight:900;font-size:20px;text-decoration:none}
+.open{background:linear-gradient(180deg,#ffd76a,#ff9a2f);color:#1a0f00}.store{background:#fff;color:#000}p{color:#a9b0c6}</style></head><body>
+<h1>حلبة</h1><p>ربعك يتحداك! رقم الغرفة:</p><div class="code" id="code">-----</div>
+<a class="btn open" id="open" href="#">🏁 افتح اللعبة وادخل</a>
+<a class="btn store" id="store" href="https://apps.apple.com/app/idXXXXXXXXXX">⬇ حمّل حلبة من App Store</a>
+<p>إذا ما انفتحت اللعبة: حمّلها، وبعدها اضغط «العب» ← «ادخل» واكتب رقم الغرفة.</p>
+<script>
+var c=(new URLSearchParams(location.search).get('room')||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,8);
+document.getElementById('code').textContent=c||'-----';
+var deep='halba://join/'+c;document.getElementById('open').href=deep;
+if(c&&/iPhone|iPad|iPod/.test(navigator.userAgent)){setTimeout(function(){location.href=deep},300)}
+</script></body></html>
